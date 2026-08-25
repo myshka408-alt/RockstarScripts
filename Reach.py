@@ -38,7 +38,7 @@ def on_tick(event):
 
     try:
         if ei is not None and _state["entity_base"] is None:
-            _state["entity_base"] = ei.getBaseValue()   # запоминаем ванильное значение один раз
+            _state["entity_base"] = ei.getBaseValue() 
         if bi is not None and _state["block_base"] is None:
             _state["block_base"] = bi.getBaseValue()
     except Exception:
@@ -60,7 +60,6 @@ def on_tick(event):
                 _warned["tick"] = True
                 client.warn("Reach: ошибка applying block range: " + str(e))
     else:
-        # модуль выключен — возвращаем ванильные значения, если успели их запомнить
         try:
             if ei is not None and _state["entity_base"] is not None:
                 ei.setBaseValue(_state["entity_base"])
